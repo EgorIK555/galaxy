@@ -18,13 +18,13 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(activeGroup.isDestroyed == true)
+        if(activeGroup.isDestroyed == true && activeGroup != null)
         {
             Destroy(activeGroup.gameObject);
 
             if(groupCount == 3)
             {
-                SceneManager.LoadSceneAsync(1);
+                SceneManager.LoadSceneAsync(SceneIDs.WinSceneID);
             }
             else
             {

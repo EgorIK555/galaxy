@@ -14,7 +14,7 @@ public class EnemyShipBullet : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // bool isKeyDownShot = Input.GetKey(KeyCode.Space);
         // if(isKeyDownShot == true)
