@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpaceShip : MonoBehaviour
 {
     public GameObject bullet;
     public SpriteRenderer spriteRenderer;
 
-    float speed = 0.1f;
+    private float speed = 0.1f;
+
+    public int health = 100;
 
     void Start()
     {
@@ -49,5 +52,21 @@ public class SpaceShip : MonoBehaviour
             bulletClone.transform.position = transform.position;
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        GameObject otherObject = otherCollider.gameObject;
+        EnemyShipBullet bulletScript = otherObject.GetComponent<EnemyShipBullet>();
+        if(bulletScript != null)
+        {
+            health -= bulletScript.damage;
+            Destroy(otherObject);
+            if(health <= 0)
+            {
+                SceneManager.LoadSceneAsync(SceneIDs.LoseSceneID);
+                Destroy(gameObject);   
+            }
+        }
     }
 }

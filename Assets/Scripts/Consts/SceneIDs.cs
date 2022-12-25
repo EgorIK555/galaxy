@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SceneIDs : MonoBehaviour
 {
-    public static int levelSceneID = 0;
-    public static int WinSceneID = 1;
+    public static int levelSceneID = 1;
+    public static int WinSceneID = 2;
+    public static int LoseSceneID = 3;
+    public static int MapSceneID = 0;
 }
