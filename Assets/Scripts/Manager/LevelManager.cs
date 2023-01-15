@@ -6,8 +6,14 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public GameObject firstGroupOriginal;
-    FirstEnemyGroup activeGroup;
-    int groupCount;
+    public GameObject ramGroupOriginal;
+    private BaseEnemyGroup activeGroup;
+    private int groupCount = 0;
+    private EnemyGroupType [] groupTypes = {
+    EnemyGroupType.BaseGroup, 
+    EnemyGroupType.BaseGroup,
+    EnemyGroupType.RamGroup
+    };
 
     void Start()
     {
@@ -22,7 +28,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(activeGroup.gameObject);
 
-            if(groupCount == 3)
+            if(groupCount == groupTypes.Length)
             {
                 SceneManager.LoadSceneAsync(SceneIDs.WinSceneID);
             }
@@ -37,8 +43,18 @@ public class LevelManager : MonoBehaviour
 
     void GroupSpawner()
     {
-        GameObject newGroup = Instantiate(firstGroupOriginal);
-        newGroup.transform.position = transform.position;
-        activeGroup = newGroup.GetComponent<FirstEnemyGroup>();
+        if(groupTypes[groupCount] == EnemyGroupType.BaseGroup)
+        {
+            GameObject newGroup = Instantiate(firstGroupOriginal);
+            newGroup.transform.position = transform.position;
+            activeGroup = newGroup.GetComponent<FirstEnemyGroup>();            
+        }
+        else if(groupTypes[groupCount] == EnemyGroupType.RamGroup)
+        {
+            GameObject newGroup = Instantiate(ramGroupOriginal);
+            newGroup.transform.position = transform.position;
+            activeGroup = newGroup.GetComponent<RamEnemyGroup>();
+        }
+        
     }
 }
