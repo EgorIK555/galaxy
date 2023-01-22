@@ -68,5 +68,15 @@ public class SpaceShip : MonoBehaviour
                 Destroy(gameObject);   
             }
         }
+        else
+        {
+            RamShip shipScript = otherObject.GetComponent<RamShip>();
+            if(shipScript != null)
+            {
+                Destroy(otherObject);
+                SceneManager.LoadSceneAsync(SceneIDs.LoseSceneID);
+                Destroy(gameObject);
+            }
+        }
     }
 }

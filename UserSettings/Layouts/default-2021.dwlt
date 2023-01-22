@@ -329,10 +329,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 115.79999}
-    m_SelectedIDs: 4e780000
-    m_LastClickedID: 30798
-    m_ExpandedIDs: 00000000487800004a7800005278000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 38.200012}
+    m_SelectedIDs: a8530000
+    m_LastClickedID: 21416
+    m_ExpandedIDs: 0000000096530000ac53000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 0000000096530000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -488,9 +488,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: ca520000
       m_LastClickedID: 0
-      m_ExpandedIDs: 04c2ffff06d1ffff66d1ffff12d2ffff14d3ffffac8d0000
+      m_ExpandedIDs: 2cfbffff92520000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -867,7 +867,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.02513665, y: 0.06353472, z: 0.0016014214, w: -0.9976644}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 

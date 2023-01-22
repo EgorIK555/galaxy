@@ -5,10 +5,12 @@ using UnityEngine;
 public class RamShip : MonoBehaviour
 {
     public MoveDirections direction;
+    public SpriteRenderer shipRenderer;
     private float speed = 0.1f;
+    private float halfSide = 0.0f;
     void Start()
     {
-        
+        halfSide = shipRenderer.sprite.bounds.size.y / 2;
     }
 
     public void FixedUpdate()
@@ -17,21 +19,89 @@ public class RamShip : MonoBehaviour
         {
             case MoveDirections.right:
                 Vector3 newPosition = new Vector3(transform.position.x + speed, transform.position.y, 0);
-                bool isOnScreen = ScreenUtils.IsPositionOnScreen(newPosition);
+                
+                Vector3 checkPosition = new Vector3(transform.position.x + speed + halfSide, transform.position.y, 0);
+                bool isOnScreen = ScreenUtils.IsPositionOnScreen(checkPosition);
                 if(isOnScreen == true)
                 {
                     transform.position = newPosition;
                 }
                 else
                 {
-                    direction = MoveDirections.down;
+                    if (transform.position.y > 0) 
+                    {
+                        direction = MoveDirections.down;
+                        transform.rotation = Quaternion.Euler(0, 0, 180);
+                    }
+                    else
+                    {
+                        direction = MoveDirections.up;
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
                 }
                 break;
             case MoveDirections.left:
+                newPosition = new Vector3(transform.position.x - speed, transform.position.y, 0);
+                    isOnScreen = ScreenUtils.IsPositionOnScreen(newPosition);
+                    if(isOnScreen == true)
+                    {
+                        transform.position = newPosition;
+                    }
+                    else
+                    {
+                        if (transform.position.y > 0) 
+                        {
+                            direction = MoveDirections.down;
+                            transform.rotation = Quaternion.Euler(0, 0, 180);
+                        }
+                        else
+                        {
+                            direction = MoveDirections.up;
+                            transform.rotation = Quaternion.Euler(0, 0, 0);
+                        }
+                    }
                 break;
             case MoveDirections.up:
+                newPosition = new Vector3(transform.position.x, transform.position.y + speed, 0);
+                isOnScreen = ScreenUtils.IsPositionOnScreen(newPosition);
+                    if(isOnScreen == true)
+                    {
+                        transform.position = newPosition;
+                    }
+                    else
+                    {
+                        if (transform.position.x > 0) 
+                        {
+                            direction = MoveDirections.left;
+                            transform.rotation = Quaternion.Euler(0, 0, 90);
+                        }
+                        else
+                        {
+                            direction = MoveDirections.right;
+                            transform.rotation = Quaternion.Euler(0, 0, 270);
+                        }
+                    }
                 break;
             case MoveDirections.down:
+                newPosition = new Vector3(transform.position.x, transform.position.y - speed, 0);
+                isOnScreen = ScreenUtils.IsPositionOnScreen(newPosition);
+                    if(isOnScreen == true)
+                    {
+                        transform.position = newPosition;
+                    }
+                    else
+                    {
+                        if (transform.position.x > 0) 
+                        {
+                            direction = MoveDirections.left;
+                            transform.rotation = Quaternion.Euler(0, 0, 90);
+                        }
+                        else
+                        {
+                            direction = MoveDirections.right;
+                            transform.rotation = Quaternion.Euler(0, 0, 270);
+                        }
+                    }
                 break;
         }
     }

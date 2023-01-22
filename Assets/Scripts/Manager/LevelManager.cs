@@ -10,8 +10,8 @@ public class LevelManager : MonoBehaviour
     private BaseEnemyGroup activeGroup;
     private int groupCount = 0;
     private EnemyGroupType [] groupTypes = {
-    EnemyGroupType.BaseGroup, 
-    EnemyGroupType.BaseGroup,
+    //EnemyGroupType.BaseGroup, 
+    //EnemyGroupType.BaseGroup,
     EnemyGroupType.RamGroup
     };
 
