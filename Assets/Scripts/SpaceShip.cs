@@ -44,6 +44,27 @@ public class SpaceShip : MonoBehaviour
             }
         }
 
+        bool isKeyDownU = Input.GetKey(KeyCode.UpArrow);
+        if(isKeyDownU == true)
+        {
+            Vector3 newPositionR = new Vector3(transform.position.x, transform.position.y + speed, 0);
+            Vector3 checkPositionR = new Vector3(newPositionR.x, newPositionR.y + halfHeight, 0);
+            if(ScreenUtils.IsPositionOnScreen(checkPositionR) == true)
+            {
+                transform.position = newPositionR;
+            }
+        }
+
+        bool isKeyDownD = Input.GetKey(KeyCode.DownArrow);
+        if(isKeyDownD == true)
+        {
+            Vector3 newPositionR = new Vector3(transform.position.x, transform.position.y - speed, 0);
+            Vector3 checkPositionR = new Vector3(newPositionR.x, newPositionR.y - halfHeight, 0);
+            if(ScreenUtils.IsPositionOnScreen(checkPositionR) == true)
+            {
+                transform.position = newPositionR;
+            }
+        }
         
         bool isShot = Input.GetKeyUp(KeyCode.Space);
         if(isShot == true)
